@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const User = () => {
     const newUser = useLoaderData()
     return (
-        <div className='grid grid-cols-5'>
+        <div className='grid grid-cols-2'>
             {
                 newUser.map((user, index) => {
                     return (

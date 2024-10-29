@@ -14,15 +14,21 @@ import User from "./components/Users/User";
 import LoadUser from "./components/Users/LoadUser";
 import Post from "./components/Posts/Post";
 import PostDetails from "./components/Posts/PostDetails";
+import ErrorAlert from "./components/Error/ErrorAlart";
 
 function App() {
   const route = createBrowserRouter([
     {
       path: "/",
       element: <NavBar/>,
+      errorElement: <ErrorAlert/>,
       children: [
         {
           path: '/home',
+          element: <Home/>
+        },
+        {
+          path: '/',
           element: <Home/>
         }
         ,
@@ -54,8 +60,8 @@ function App() {
           element: <Post/>
         },
         {
-          path: '/post/:id',
-          loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`),
+          path: '/post/:postId',
+          loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
           element: <PostDetails/>
         } 
       ]

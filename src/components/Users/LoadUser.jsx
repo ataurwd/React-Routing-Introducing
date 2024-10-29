@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const LoadUser = () => {
     const newData = useLoaderData();
@@ -10,6 +11,7 @@ const LoadUser = () => {
             <h3>Phone: {phone}</h3>
             <h4>Username: {username}</h4>
             <p>Company: {company.name}</p>
+            <Link to="/users" className='btn btn-success'>Back</Link>
         </div>
     );
 };
