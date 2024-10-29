@@ -10,6 +10,10 @@ import Services from "./components/Services/Services";
 import Contact from "./components/Contact/Contact";
 import NavBar from './components/Nav Bar/NavBar';
 import Home from "./components/Home/Home";
+import User from "./components/Users/User";
+import LoadUser from "./components/Users/LoadUser";
+import Post from "./components/Posts/Post";
+import PostDetails from "./components/Posts/PostDetails";
 
 function App() {
   const route = createBrowserRouter([
@@ -33,7 +37,27 @@ function App() {
         {
           path: '/contact',
           element: <Contact/>
-        }
+        },
+        {
+          path: '/users',
+          loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
+          element: <User/>,
+        },
+        {
+          path: '/user/:id',
+          loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`),
+          element: <LoadUser/>
+        },
+        {
+          path: '/post',
+          loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
+          element: <Post/>
+        },
+        {
+          path: '/post/:id',
+          loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`),
+          element: <PostDetails/>
+        } 
       ]
     }
   ])

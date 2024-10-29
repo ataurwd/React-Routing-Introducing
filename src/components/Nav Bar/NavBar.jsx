@@ -18,6 +18,8 @@ const NavBar = () => {
             <Link to="/about" className="hover:text-gray-400">About</Link>
             <Link to="/services" className="hover:text-gray-400">Services</Link>
             <Link to="/contact" className="hover:text-gray-400">Contact</Link>
+            <Link to="/users">Users</Link>
+            <Link to="/post">Post</Link>
         </nav>
 
         {/* Right Side Profile Icon */}
@@ -26,7 +28,7 @@ const NavBar = () => {
         </div>
         </header>
         <Outlet/>
-        <Footer/>
+        {/* <Footer/> */}
         </div>
         
     );
